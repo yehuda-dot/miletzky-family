@@ -54,13 +54,17 @@ h3{font-size:19px;margin:22px 0 6px;color:var(--accent2)}
 .ft>ul{padding-top:0}
 .ft li{list-style:none;position:relative;padding:22px 3px 0;text-align:center}
 .ft>ul>li{padding-top:0}
-.ft li::before,.ft li::after{content:"";position:absolute;top:0;width:50%;height:22px;border-top:2px solid #c9b99f}
+/* קווי העץ: הקו האופקי נמתח בין מרכזי האחים; הקווים האנכיים יוצאים ממרכז התיבה עצמה, כדי שלא יהיו "שבירות" */
+.ft li::before,.ft li::after{content:"";position:absolute;top:0;width:50%;border-top:2px solid #c9b99f}
 .ft li::before{left:0}
-.ft li::after{right:0;border-left:2px solid #c9b99f}
+.ft li::after{right:0}
 .ft li:first-child::after{border-top:0}
-.ft li:last-child::before{border:0}
+.ft li:last-child::before{border-top:0}
 .ft>ul>li::before,.ft>ul>li::after{display:none}
-.ft ul ul::before{content:"";position:absolute;top:0;left:50%;height:22px;border-left:2px solid #c9b99f}
+.ft .n{position:relative;vertical-align:top}
+.ft li>.n::before{content:"";position:absolute;top:-23px;left:50%;margin-left:-1px;height:22px;border-left:2px solid #c9b99f}
+.ft>ul>li>.n::before{display:none}
+.ft li:has(>ul)>.n::after{content:"";position:absolute;bottom:-23px;left:50%;margin-left:-1px;height:22px;border-left:2px solid #c9b99f}
 .ft .n{display:inline-block;background:#fff;border:1px solid var(--line);border-right:4px solid var(--g);border-radius:8px;padding:5px 8px;font-size:13px;line-height:1.35;min-width:84px;max-width:150px}
 .ft .n.y{border-right-color:var(--y)}.ft .n.o{border-right-color:var(--o)}
 .ft .n.me{background:#fbf6ee;border-color:#d9c7a8}
@@ -279,8 +283,8 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
 
   <div class="branch-title" style="margin-top:28px">צאצאי ר' חיים חייקל זאב (אחיו של שמעון אליעזר)</div>
   <div class="row" style="margin-top:10px">
-    <div class="card y"><div class="name">ר' משה יוסף מילצקי</div><div class="meta">נולד ח' טבת תרפ"ח (המרה: 1.1.1928), ירושלים · נפטר כ"ה תמוז תש"ע (המרה: 7.7.2010)</div><div class="note"><span class="dot d-y" style="width:9px;height:9px"></span> בן ר' חיים חייקל זאב ומרים. הקשר מבוסס על מקורות מאוחרים: אנציקלופדיה "המכלול" ועיתונות חרדית (קישור: [להשלמה]). אב בית הדין הרבני האזורי בירושלים, מראשי ישיבת חיי עולם. נשא את מתילדה בת האדמו"ר מסוואראן. מקור לפרטים האלה: אותם מקורות (קישור: [להשלמה]).</div></div>
-    <div class="card y"><div class="name">ר' אהרן נחום מילצקי</div><div class="meta">בני ברק · נפטר (התאריך עוד לא נמצא)</div><div class="note"><span class="dot d-y" style="width:9px;height:9px"></span> בן ר' חיים חייקל זאב ומרים, לפי אותם מקורות מאוחרים. גבאי בית הכנסת איצקוביץ בבני ברק. בעיתונות מצוין שנכדו הוא "נין רבי חיים חייקל מילצקי" (קישור: [להשלמה]).</div></div>
+    <div class="card y"><div class="name">ר' משה יוסף מילצקי</div><div class="meta">נולד ח' טבת תרפ"ח (המרה: 1.1.1928), ירושלים · נפטר כ"ה תמוז תש"ע (המרה: 7.7.2010)</div><div class="note"><span class="dot d-y" style="width:9px;height:9px"></span> בן ר' חיים חייקל זאב ומרים. הקשר מבוסס על מקורות מאוחרים: <a href="https://www.hamichlol.org.il/%D7%A8%D7%91%D7%99_%D7%9E%D7%A9%D7%94_%D7%99%D7%95%D7%A1%D7%A3_%D7%9E%D7%99%D7%9C%D7%A6%D7%A7%D7%99" target="_blank" rel="noopener">המכלול</a> ("נולד בירושלים לרבי חיים חייקל זאב ומרים מילצקי"). אב בית הדין הרבני האזורי בירושלים, מראשי ישיבת חיי עולם. נשא את מתילדה בת האדמו"ר מסוואראן. המקורות: <a href="https://www.hamichlol.org.il/%D7%A8%D7%91%D7%99_%D7%9E%D7%A9%D7%94_%D7%99%D7%95%D7%A1%D7%A3_%D7%9E%D7%99%D7%9C%D7%A6%D7%A7%D7%99" target="_blank" rel="noopener">המכלול</a>; <a href="https://www.bhol.co.il/news/1447979" target="_blank" rel="noopener">בחדרי חרדים</a>.</div></div>
+    <div class="card y"><div class="name">ר' אהרן נחום מילצקי</div><div class="meta">בני ברק · נפטר (התאריך עוד לא נמצא)</div><div class="note"><span class="dot d-y" style="width:9px;height:9px"></span> בן ר' חיים חייקל זאב ומרים, לפי מקורות מאוחרים. גבאי בית הכנסת איצקוביץ בבני ברק. בכתבה ב<a href="https://www.bhol.co.il/news/1180956" target="_blank" rel="noopener">בחדרי חרדים</a> מצוין שנכדו הוא "נין הגה''צ רבי חיים חייקל מילצקי".</div></div>
   </div>
   <p style="font-size:13.5px;color:var(--muted);margin:8px 0 0">גם אם יוכח הקשר של הענף הירושלמי, הוא לא מוכיח את הזיהוי של חייקל עם רשומת הלידה מ-1898.</p>
 
