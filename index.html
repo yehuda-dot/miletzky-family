@@ -67,6 +67,7 @@ h3{font-size:19px;margin:22px 0 6px;color:var(--accent2)}
 .ft li:has(>ul)>.n::after{content:"";position:absolute;bottom:-23px;left:50%;margin-left:-1px;height:22px;border-left:2px solid #c9b99f}
 .ft .n{display:inline-block;background:#fff;border:1px solid var(--line);border-right:4px solid var(--g);border-radius:8px;padding:5px 8px;font-size:13px;line-height:1.35;min-width:84px;max-width:150px}
 .ft .n.y{border-right-color:var(--y)}.ft .n.o{border-right-color:var(--o)}
+.ft .n.nb{border-right-color:var(--line)}
 .ft .n.me{background:#fbf6ee;border-color:#d9c7a8}
 .ft .n b{display:block;font-size:13.5px}
 .ft .n small{color:var(--muted);font-size:11.5px;display:block}
@@ -102,6 +103,11 @@ blockquote{margin:10px 0;padding:10px 14px;background:#f8f1e4;border-right:4px s
 .route{fill:none;stroke-width:2.5;opacity:.75}
 .r1{stroke:#7a4b2a}.r2,.r3{stroke:#a33a3a;stroke-dasharray:7 6}.r4{stroke:#2f5d62}.r5{stroke:#7a4b2a;stroke-dasharray:2 6}
 .offmap{font-size:14px;fill:#7a4b2a;font-weight:700}
+.maphint{display:none;font-size:13px;color:var(--muted);margin:0 0 6px}
+@media (max-width:820px){.mapscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}.mapscroll #mapsvg{width:1000px;max-width:none}.maphint{display:block}}
+.refc{pointer-events:none}
+.refc circle{fill:#b8ad9c}
+.refc text{font-size:14px;fill:#9a8f80;paint-order:stroke;stroke:#fbf7f0;stroke-width:3px}
 .pt{cursor:pointer}
 .pt circle{fill:#fff;stroke:#7a4b2a;stroke-width:3;transition:r .15s}
 .pt.hyp circle{stroke:#c4621b;stroke-dasharray:3 2}
@@ -212,8 +218,8 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
         <ul>
          <li><span class="n y"><b>אריה דוב</b><small>נפ. 1993</small></span></li>
          <li><span class="n y me"><b>יוסף</b><small>נ. 1938</small></span>
-           <ul><li><span class="n me"><b>יצחק דוד</b></span>
-             <ul><li><span class="n me"><b>יהודה</b></span></li></ul></li></ul></li>
+           <ul><li><span class="n nb"><b>יצחק דוד</b></span></li>
+               <li><span class="n nb"><b>שריה</b></span></li></ul></li>
         </ul></li>
       <li><span class="n"><b>אסתר רבקה</b><small>נ. 1907</small></span></li>
       <li><span class="n y"><b>רייזה / רוזה</b><small>~1904</small></span></li>
@@ -278,7 +284,7 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
   <div class="connector">▼</div>
   <div class="gen-label">דורות ההווה</div>
   <div class="row">
-    <div class="card"><div class="name">יצחק דוד ← יהודה</div><div class="note">פרטי בני משפחה חיים אינם מופיעים בדף.</div></div>
+    <div class="card"><div class="name">בני יוסף: יצחק דוד, שריה</div><div class="note">פרטי בני משפחה חיים אינם מופיעים בדף.</div></div>
   </div>
 
   <div class="branch-title" style="margin-top:28px">צאצאי ר' חיים חייקל זאב (אחיו של שמעון אליעזר)</div>
@@ -405,23 +411,33 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
   <h2>מפת המקומות</h2>
   <p class="lead">לחצו על נקודה כדי לראות מה היה המקום בזמנו ומה הוא היום. הקווים מראים את דרכי המשפחה. המיקומים מדויקים, אבל הגבולות שעל המפה מסומנים רק כשמות של המדינות של היום.</p>
   <div class="mapwrap">
-    <svg id="mapsvg" viewBox="0 0 1000 820" role="img" aria-label="מפת מקומות המשפחה">
+    <div class="mapscroll"><p class="maphint">בטלפון אפשר לגלול את המפה הצידה.</p>
+    <svg id="mapsvg" viewBox="0 0 1560 820" role="img" aria-label="מפת מקומות המשפחה">
       <defs>
         <pattern id="grid" width="62.5" height="101" patternUnits="userSpaceOnUse"><path d="M62.5 0 L0 0 0 101" fill="none" stroke="#e9dfcf" stroke-width="1"/></pattern>
         <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7a4b2a"/></marker>
         <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a33a3a"/></marker>
         <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2f5d62"/></marker>
       </defs>
-      <rect width="1000" height="820" fill="#fbf7f0"/>
-      <rect width="1000" height="820" fill="url(#grid)"/>
+      <rect width="1560" height="820" fill="#fbf7f0"/>
+      <rect width="1560" height="820" fill="url(#grid)"/>
       <g class="cty">
         <text x="14" y="30" style="font-size:16px">הים הבלטי</text>
         <text x="420" y="40">לטביה</text>
         <text x="70" y="250">ליטא</text>
         <text x="40" y="520">פולין</text>
         <text x="460" y="330">בלארוס</text>
-        <text x="520" y="790">אוקראינה</text>
-        <text x="830" y="330">רוסיה</text>
+        <text x="540" y="725">אוקראינה</text>
+        <text x="1150" y="330">רוסיה</text>
+      </g>
+      <!-- ערי ייחוס: לא מקומות המשפחה, ולכן אפורות ולא לחיצות -->
+      <g class="refc" aria-hidden="true">
+        <circle cx="268" cy="193" r="4"/><text x="258" y="210" text-anchor="end">וילנה</text>
+        <circle cx="177" cy="295" r="4"/><text x="187" y="300" text-anchor="start">גרודנה</text>
+        <circle cx="410" cy="273" r="4"/><text x="420" y="278" text-anchor="start">מינסק</text>
+        <circle cx="4" cy="441" r="4"/><text x="14" y="446" text-anchor="start">ורשה</text>
+        <circle cx="595" cy="621" r="4"/><text x="605" y="626" text-anchor="start">קייב</text>
+        <circle cx="1039" cy="85" r="4"/><text x="1049" y="90" text-anchor="start">מוסקבה</text>
       </g>
       <polyline class="route r1" points="146,394 135,350 158,145 178,166" marker-end="url(#arr)"/>
       <path class="route r2" d="M181,171 C 400,350 600,520 745,660" marker-end="url(#arr3)"/>
@@ -429,10 +445,11 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
       <path class="route r3" d="M952,668 C 800,300 450,90 304,68" marker-end="url(#arr3)"/>
       <path class="route r3" d="M299,67 C 250,100 210,140 186,166" marker-end="url(#arr3)"/>
       <path class="route r4" d="M338,177 C 230,90 130,70 84,64" marker-end="url(#arr2)"/>
+      <path class="route r4" d="M344,183 C 700,420 1150,640 1460,790" style="stroke-dasharray:3 6" marker-end="url(#arr2)"/>
       <path class="route r5" d="M190,190 L 400,805" marker-end="url(#arr)"/>
       <text x="410" y="808" class="offmap">אל ירושלים, <tspan direction="ltr" unicode-bidi="embed">1925–1935</tspan></text>
       <g id="pts"></g>
-    </svg>
+    </svg></div>
     <aside id="mapinfo" class="box">
       <h4 id="mi-title">בחרו מקום</h4>
       <div id="mi-body" style="font-size:15px;color:var(--muted)">לחצו על אחת הנקודות במפה.</div>
@@ -441,7 +458,8 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
   <div class="maplegend">
     <span><i class="ln" style="background:#7a4b2a"></i> דרכו של ראובן: אורליה, ביאליסטוק, צ'קישקה, סלובודקה</span>
     <span><i class="ln dash" style="border-color:#a33a3a"></i> גירוש 1915 ושיבה 1922</span>
-    <span><i class="ln" style="background:#2f5d62"></i> ענף רזניק: סביר, טלז</span>
+    <span><i class="ln" style="background:#2f5d62"></i> ענף רזניק: סביר, טלז; קו נקודות אל צריצין (?), השערה</span>
+    <span><i class="dot" style="background:#b8ad9c;width:8px;height:8px"></i> ערים לייחוס בלבד (לא מקומות המשפחה)</span>
   </div>
   <p style="font-size:13.5px;color:var(--muted)">מחוץ למפה: <b>טריאסטה</b> (איטליה), נמל היציאה של שרה ב-1935. <b>יפו</b> ו<b>ירושלים</b>, שבהן התיישבה המשפחה מ-1925. <b>פתח תקווה</b>, שבה היה הפרדס ושם קבור שמעון אליעזר.</p>
 </section>
@@ -535,7 +553,7 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
     then:'עיירה במחוז קובנה. עד 1843 השתייכה לפלך וילנה, ואחר כך לפלך קובנה. ב-1897 חיו בה 432 יהודים מתוך 668 תושבים. אחרי 1844 אוחדה לקהילת מס אחת עם סרדניק וולונה.',
     now:'Čekiškė, כפר במחוז קאונס בליטא.',
     fam:'כאן הייתה רשומה משפחת יודקובסקי (צודיק, שמעל, משה יצחק). כאן נישאו ראובן ורייזל ב-1890, וכאן נולדה רחה לאה ב-1891. המשפחה הוחזרה לנפה הזו ב-1922.'},
-   {id:'slob',n:'וילייאמפולה (סלובודקה)',x:181,y:171,dx:-6,dy:26,anchor:'end',
+   {id:'slob',n:'וילייאמפולה (סלובודקה)',n2:'(פרבר של קובנה)',x:181,y:171,dx:-6,dy:26,anchor:'end',
     t:'וילייאמפולה · סלובודקה · Вилиямполь',
     then:'פרבר על הגדה הצפונית של נהר הנריס, מול קובנה. מרכז ישיבת סלובודקה, "כנסת ישראל". סופח לקובנה ב-1919.',
     now:'Vilijampolė, שכונה בעיר קאונס בליטא. בשנים <span dir="ltr">1941–1944</span> היה כאן גטו קובנה.',
@@ -570,12 +588,14 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
     then:'בשנים <span dir="ltr">1919–1934</span> בירת אוקראינה הסובייטית. בה ישבה נציגות ליטא שהנפיקה אישורי שיבה.',
     now:'Kharkiv, העיר השנייה בגודלה באוקראינה.',
     fam:'ב-17.7.1922 הונפק כאן אישור לראובן, לרייזה ולשישה ילדים.'},
-   {id:'tsar',n:'צריצין (?) – מזרחה, מחוץ למפה',x:985,y:795,dx:-12,dy:-10,anchor:'end',hyp:1,
+   {id:'tsar',n:'צריצין (?)',x:1469,y:797,dx:-12,dy:-10,anchor:'end',hyp:1,rez:1,
     t:'צריצין · Царицын (השערה)',
-    then:'עיר על הוולגה. לפי הזמנת החתונה של 1935, הרב משה רזניק היה "הרב מצריצין". הזיהוי עם צריצין שעל הוולגה הוא השערה.',
-    now:'Volgograd, רוסיה. נקראה סטלינגרד בשנים <span dir="ltr">1925–1961</span>.',
+    then:'צריצין, פלך סרטוב. עיר על הוולגה. לפי הזמנת החתונה של 1935, הרב משה רזניק היה "הרב מצריצין". הזיהוי עם צריצין שעל הוולגה הוא השערה.',
+    now:'היום וולגוגרד (Volgograd), רוסיה. נקראה סטלינגרד בשנים <span dir="ltr">1925–1961</span>.',
     fam:'אולי מקום כהונתו של הרב משה רזניק, אבי שרה. לא אומת.'}
   ];
+  /* בטלפון: להתחיל את הגלילה מהצד המערבי (ליטא), לא מרוסיה */
+  var ms=document.querySelector('.mapscroll'); if(ms&&ms.scrollWidth>ms.clientWidth){ms.scrollLeft=-ms.scrollWidth;if(ms.scrollLeft>0)ms.scrollLeft=0}
   var g=document.getElementById('pts'), NS='http://www.w3.org/2000/svg';
   P.forEach(function(p){
     var a=document.createElementNS(NS,'g');
@@ -586,6 +606,7 @@ dialog#lb::backdrop{background:rgba(30,20,10,.75)}
     var t=document.createElementNS(NS,'text');
     t.setAttribute('x',p.x+p.dx);t.setAttribute('y',p.y+p.dy);t.setAttribute('text-anchor',p.anchor);
     t.textContent=p.n;
+    if(p.n2){var t2=document.createElementNS(NS,'tspan');t2.setAttribute('x',p.x+p.dx);t2.setAttribute('dy','17');t2.setAttribute('style','font-size:13px;font-weight:500');t2.textContent=p.n2;t.appendChild(t2)}
     a.appendChild(c);a.appendChild(t);
     function show(){
       document.querySelectorAll('.pt.on').forEach(function(e){e.classList.remove('on')});
