@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>משפחת מילצקי – מאורליה וצ'קישקה לירושלים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f3ec; --paper:#fffdf8; --ink:#2b2621; --muted:#6f665b; --line:#e3dacb;
+  --accent:#7a4b2a; --accent2:#2f5d62;
+  --g:#2e7d4f; --y:#b58a00; --o:#c4621b; --r:#a33a3a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Heebo,system-ui,sans-serif;line-height:1.65;font-size:16.5px}
+header.hero{background:linear-gradient(160deg,#3b2a1e,#5b3b24 60%,#2f5d62);color:#fbf5ea;padding:56px 20px 44px;text-align:center}
+.hero h1{font-family:"Frank Ruhl Libre",serif;font-size:clamp(30px,5vw,48px);margin:0 0 8px;letter-spacing:.5px}
+.hero p{margin:0 auto;max-width:720px;opacity:.9}
+.hero .route{margin-top:18px;font-size:15px;opacity:.85}
+nav{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav ul{list-style:none;margin:0 auto;padding:8px 12px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:1100px}
+nav a{display:block;padding:6px 12px;border-radius:999px;color:var(--accent);text-decoration:none;font-weight:500;font-size:15px}
+nav a:hover{background:#f1e7d8}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 60px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 26px 20px;margin:22px 0;box-shadow:0 1px 2px rgba(60,40,20,.04)}
+h2{font-family:"Frank Ruhl Libre",serif;font-size:28px;margin:0 0 6px;color:var(--accent)}
+h3{font-size:19px;margin:22px 0 6px;color:var(--accent2)}
+.lead{color:var(--muted);margin-top:0}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:14.5px;margin:10px 0 0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;flex:none}
+.d-g{background:var(--g)}.d-y{background:var(--y)}.d-o{background:var(--o)}.d-r{background:var(--r)}
+/* tree */
+.gen{margin:0 0 6px}
+.gen-label{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.5px;margin:18px 0 8px;display:flex;align-items:center;gap:10px}
+.gen-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.card{flex:1 1 230px;max-width:340px;background:#fff;border:1px solid var(--line);border-right:5px solid var(--g);border-radius:10px;padding:12px 14px;position:relative}
+.card.y{border-right-color:var(--y)}.card.o{border-right-color:var(--o)}.card.r{border-right-color:var(--r)}
+.card.main{background:#fbf6ee}
+.card .name{font-weight:700;font-size:17px}
+.card .alt{font-size:13px;color:var(--muted);direction:ltr;text-align:right}
+.card .meta{font-size:14.5px;margin-top:4px}
+.card .note{font-size:13.5px;color:var(--muted);margin-top:6px}
+.branch-title{font-family:"Frank Ruhl Libre",serif;font-size:21px;margin:26px 0 2px;color:var(--ink)}
+.connector{text-align:center;color:#b9ab95;font-size:20px;line-height:1;margin:6px 0}
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl th{background:#f3ebde;text-align:right;padding:8px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
+.tbl td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:hover td{background:#fbf7f0}
+.ltr{direction:ltr;unicode-bidi:isolate}
+.wrap{overflow-x:auto}
+/* timeline */
+.timeline{position:relative;margin:10px 0 0;padding-right:26px}
+.timeline::before{content:"";position:absolute;right:8px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.ev{position:relative;margin:0 0 16px}
+.ev::before{content:"";position:absolute;right:-24px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--paper)}
+.ev .yr{font-weight:700;color:var(--accent)}
+.ev .src{font-size:13px;color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{font-size:12.5px;background:#efe6d6;border-radius:999px;padding:2px 9px;color:#5b4a35}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.box h4{margin:0 0 6px;font-size:16.5px}
+.box ul{margin:0;padding-right:18px}
+details{border:1px solid var(--line);border-radius:10px;background:#fff;margin:10px 0;padding:0 14px}
+summary{cursor:pointer;padding:12px 0;font-weight:700;color:var(--accent2)}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:20px}
+blockquote{margin:10px 0;padding:10px 14px;background:#f8f1e4;border-right:4px solid var(--accent);border-radius:6px;font-family:"Frank Ruhl Libre",serif;font-size:17px}
+.mapwrap{display:grid;grid-template-columns:1fr 300px;gap:14px;align-items:start}
+#mapsvg{direction:ltr;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fbf7f0}
+.cty text{font-size:22px;fill:#cbbfa9;font-weight:700;letter-spacing:2px}
+.route{fill:none;stroke-width:2.5;opacity:.75}
+.r1{stroke:#7a4b2a}.r2,.r3{stroke:#a33a3a;stroke-dasharray:7 6}.r4{stroke:#2f5d62}.r5{stroke:#7a4b2a;stroke-dasharray:2 6}
+.offmap{font-size:14px;fill:#7a4b2a;font-weight:700}
+.pt{cursor:pointer}
+.pt circle{fill:#fff;stroke:#7a4b2a;stroke-width:3;transition:r .15s}
+.pt.hyp circle{stroke:#c4621b;stroke-dasharray:3 2}
+.pt.rez circle{stroke:#2f5d62}
+.pt:hover circle,.pt.on circle{r:10;fill:#7a4b2a}
+.pt.rez:hover circle,.pt.rez.on circle{fill:#2f5d62}
+.pt text{font-size:15px;font-weight:700;fill:#2b2621;paint-order:stroke;stroke:#fbf7f0;stroke-width:4px}
+#mapinfo .then,#mapinfo .now{margin:6px 0;font-size:14.5px}
+#mapinfo b{color:var(--accent2)}
+.maplegend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;margin:10px 0 4px}
+.maplegend span{display:inline-flex;align-items:center;gap:6px}
+.ln{display:inline-block;width:26px;height:3px}
+.ln.dash{height:0;border-top:3px dashed}
+@media (max-width:820px){.mapwrap{grid-template-columns:1fr}}
+@media (max-width:600px){section{padding:18px 14px}.card{max-width:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>משפחת מילצקי</h1>
+  <p>מחקר שורשים מתועד: מאורליה שבפלך גרודנה ומצ'קישקה שבליטא, דרך סלובודקה, אוקראינה וחרקוב – ועד ירושלים.</p>
+  <div class="route">אורליה · ביאליסטוק · צ'קישקה · וילייאמפולה (סלובודקה) · לובני · חרקוב · אובליאי · ירושלים</div>
+</header>
+
+<nav><ul>
+  <li><a href="#tree">עץ המשפחה</a></li>
+  <li><a href="#timeline">ציר זמן</a></li>
+  <li><a href="#reuven">ר' ראובן</a></li>
+  <li><a href="#docs">מסמכים</a></li>
+  <li><a href="#map">מפה</a></li>
+  <li><a href="#places">מקומות</a></li>
+  <li><a href="#open">שאלות פתוחות</a></li>
+  <li><a href="#about">על המחקר</a></li>
+</ul></nav>
+
+<main>
+
+<section>
+  <h2>איך לקרוא את הדף</h2>
+  <p class="lead">כל פרט מסומן לפי מידת הביסוס שלו במקורות. שמות מופיעים גם בכתיב המקורי שבו נרשמו, כי זה מה שעוזר לחפש הלאה.</p>
+  <div class="legend">
+    <span><i class="dot d-g"></i> מאומת במסמך מקור</span>
+    <span><i class="dot d-y"></i> סביר מאוד, מבוסס על מפתח או התאמה חזקה</span>
+    <span><i class="dot d-o"></i> השערה לבדיקה</span>
+    <span><i class="dot d-r"></i> סתירה פתוחה</span>
+  </div>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:0">תאריכים לפני 1918 נרשמו ברוב המסמכים לפי הלוח היוליאני (פער של 12–13 ימים מהלוח הגרגוריאני). כשהתאריך הומר, מופיעים שני הלוחות.</p>
+</section>
+
+<section id="tree">
+  <h2>עץ המשפחה</h2>
+  <p class="lead">מהדור העתיק ביותר שנמצא ועד היום. הצבע בשולי כל כרטיס מראה את רמת הביסוס.</p>
+
+  <div class="branch-title">ענף מילצקי (אבי האב)</div>
+
+  <div class="gen-label">דור ראשון שנמצא</div>
+  <div class="row">
+    <div class="card">
+      <div class="name">דב-משה (ברקו-משה) מילצקי</div>
+      <div class="alt">Berko-Movsha / Berel Movsha / Berko Moshko Mileckij</div>
+      <div class="meta">רשום בקהילת אורליה, מחוז ביילסק, פלך גרודנה</div>
+      <div class="note">אבי ר' ראובן. מופיע כ"דוב משה" בנישואי 1890, כ"דב-משה" בערך "יהדות ליטא", ובצורות שונות במפתח לידות נכדיו. לא נמצא עדיין דור מעליו.</div>
+    </div>
+  </div>
+  <div class="connector">▼</div>
+
+  <div class="gen-label">דור שני</div>
+  <div class="row">
+    <div class="card main">
+      <div class="name">ר' ראובן מילצקי</div>
+      <div class="alt">Rubin / Ruvin / Ruvin Iser / Ruvimas Meleckis</div>
+      <div class="meta">נולד באורליה (פלך גרודנה), כנראה בסביבות 1866 · נפטר ב' אייר תשי"ג, 17.4.1953, ירושלים · קבור בהר המנוחות</div>
+      <div class="note">גדל בביאליסטוק. ממנהליה הרוחניים של ישיבת "כנסת ישראל" בסלובודקה. גר בצ'קישקה מ-1889. ראו <a href="#reuven">פרק ר' ראובן</a>.</div>
+    </div>
+    <div class="card main">
+      <div class="name">רייזה זלדה מילצקי, לבית יודקובסקי</div>
+      <div class="alt">Reize Zelde / Reiza / Zeldė Mileckienė · Юдковская</div>
+      <div class="meta">נולדה בסביבות 1864–1866, רשומה בקהילת צ'קישקה</div>
+      <div class="note">בת משה יצחק (Movsha Itsko) יודקובסקי. נישאה לראובן בי"ג כסלו תרנ"א, 25.11.1890, בצ'קישקה.</div>
+    </div>
+  </div>
+  <div class="connector">▼</div>
+
+  <div class="gen-label">דור שלישי – ילדי ראובן ורייזה זלדה</div>
+  <div class="row">
+    <div class="card"><div class="name">רחה לאה</div><div class="alt">Rakhe Leye</div><div class="meta">נולדה 18.9.1891, צ'קישקה</div><div class="note">כנראה רחל לאה ספוקוינה, הנזכרת עם אביה ב-1942 <span class="dot d-y" style="width:9px;height:9px"></span></div></div>
+    <div class="card"><div class="name">ר' חיים חייקל זאב</div><div class="alt">Khaikel Volf / Chaikelis</div><div class="meta">נולד 1.1.1898, וילייאמפולה · נפטר כ"ה שבט תשכ"ד, 1964</div><div class="note">ר"מ בירושלים.</div></div>
+    <div class="card y"><div class="name">מאשה</div><div class="alt">Maša / Mose</div><div class="meta">נולדה בסביבות 1899</div><div class="note">כנראה מאשה קפלנסקי (אשת יונה ליב קפלנסקי), הנזכרת עם אביה ב-1942.</div></div>
+    <div class="card"><div class="name">שעיה (אובסיי)</div><div class="alt">Ovsei / Šaja</div><div class="meta">נולד 30.3.1902, וילייאמפולה</div></div>
+    <div class="card"><div class="name">מאיר פנחס</div><div class="alt">Meer Pinkhos</div><div class="meta">נולד 10.6.1904, וילייאמפולה</div><div class="note">תאום של שמעון אליעזר. לפי המסורת נפטר בינקותו.</div></div>
+    <div class="card main"><div class="name">שמעון אליעזר</div><div class="alt">Shimen Leizer / Šimelis / Simon Lezeris</div><div class="meta">נולד 10.6.1904, וילייאמפולה · נפטר י' טבת תשמ"ט, 18.12.1988 · קבור בסגולה, פתח תקווה</div><div class="note">חניך ישיבות סלובודקה וחברון.</div></div>
+    <div class="card"><div class="name">אסתר רבקה</div><div class="alt">Ester Rivka</div><div class="meta">נולדה 11.1.1907, וילייאמפולה</div></div>
+    <div class="card y"><div class="name">רייזה / רוזה</div><div class="alt">Rosė / Rise</div><div class="meta">נולדה בסביבות 1904</div><div class="note">ידועה במשפחה כאחות שעלתה עם שמעון אליעזר.</div></div>
+    <div class="card y"><div class="name">מריאשה (?)</div><div class="alt">Marijaša(?)</div><div class="meta">בת 17 ב-1922</div><div class="note">השם לא פוענח בוודאות.</div></div>
+    <div class="card y"><div class="name">בת שנישאה לר' שמעיה דוד וין</div><div class="meta">הרב וין (1901–1967), הרב הראשי הראשון של חולון</div><div class="note">שמה עדיין לא זוהה במסמך.</div></div>
+  </div>
+  <div class="connector">▼</div>
+
+  <div class="gen-label">דור רביעי</div>
+  <div class="row">
+    <div class="card main"><div class="name">שמעון אליעזר מילצקי + שרה, לבית רזניק</div><div class="meta">נישאו י"ב אלול תרצ"ה, 10.9.1935, במלון "תל אביב", רחוב יפו, ירושלים</div><div class="note">לפי הזמנת החתונה ב"קול ישראל". ההזמנה חתומה בידי "ראובן מילצקי ורעיתו ריזא זעלדא", וכתוב בה "נשואי בננו".</div></div>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <div class="card"><div class="name">אריה דוב</div><div class="meta">נפטר כ"ו טבת תשנ"ג, 19.1.1993</div><div class="note">על מצבתו "ב"ר שמעון אליעזר". למד בישיבת חברון.</div></div>
+    <div class="card y"><div class="name">יוסף</div><div class="meta">נולד 1938</div><div class="note">בתעודת הזהות שמות ההורים: שמעון ושרה. החיבור לשמות המלאים מבוסס על המשפחה וממתין למסמך מפורש.</div></div>
+  </div>
+  <div class="connector">▼</div>
+  <div class="gen-label">דורות ההווה</div>
+  <div class="row">
+    <div class="card"><div class="name">יצחק דוד ← יהודה</div><div class="note">פרטי בני משפחה חיים אינם מופיעים בדף.</div></div>
+  </div>
+
+  <div class="branch-title" style="margin-top:34px">ענף יודקובסקי (משפחת רייזה זלדה)</div>
+  <div class="row" style="margin-top:10px">
+    <div class="card o"><div class="name">צודיק יודקובסקי</div><div class="meta">צ'קישקה, תחילת המאה ה-19</div><div class="note">ידוע רק כאביו של שמעל, מתוך מפתח.</div></div>
+    <div class="card y"><div class="name">שמעל (שמעון) בן צודיק</div><div class="alt">Shimel Yudkovsky</div><div class="meta">נולד בסביבות 1821, צ'קישקה</div><div class="note">ילדיו לפי המפתח: חיה גנה (~1848), משה אברם (~1850, נפטר 8.2.1913 בוילייאמפולה), איצקו.</div></div>
+    <div class="card"><div class="name">משה יצחק יודקובסקי</div><div class="alt">Movsha Itsko / Itsik</div><div class="meta">אבי רייזה זלדה, צ'קישקה</div><div class="note">מאומת בנישואי 1890 ובחמש רשומות לידה של נכדיו. <b>האם הוא איצקו בן שמעל? השערה בלבד.</b></div></div>
+  </div>
+
+  <div class="branch-title" style="margin-top:34px">ענף רזניק-רודמן (משפחת שרה)</div>
+  <div class="row" style="margin-top:10px">
+    <div class="card"><div class="name">שרה מילצקי, לבית רזניק</div><div class="alt">Sora Reznik / Reznikaitė</div><div class="meta">נולדה 16.11.1907 (יוליאני), 29.11.1907 (גרגוריאני), טלז</div><div class="note">עלתה ב-1935 דרך טריאסטה ליפו באוניה "Gerusalemme".</div></div>
+    <div class="card"><div class="name">הרב משה (אהרן) רזניק</div><div class="alt">Movsha-Aron Abramovich Reznik</div><div class="meta">נולד בסביבות 1873 · רשום בקהילת סביר, מחוז שווינציאן</div><div class="note">בהזמנה של 1935: "הרב הגאון מוה"ר משה רזניק, הרב מצריצין". ב-1907 נישא כאלמן לאיטה גנה.</div></div>
+    <div class="card"><div class="name">איטה גנה, לבית רודמן</div><div class="alt">Ita-Gena Abramovna Rudman</div><div class="meta">רשומה בקהילת טלז · בת אברם</div><div class="note">נישאה 19.1.1907 (יוליאני) בטלז. זהות הוריה עדיין לא הוכרעה.</div></div>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <div class="card o"><div class="name">אברם בן אליאש רזניק (?)</div><div class="note">מועמד לאבי משה אהרן, לפי מפתחות. לא הוכח.</div></div>
+    <div class="card o"><div class="name">אליאש-משה בן אברם רזניק</div><div class="meta">נולד בסביבות 1818 · סביר, פלך וילנה</div><div class="note">ברשימת המפקד של סביר מ-1858, משק בית 102. מועמד בלבד.</div></div>
+    <div class="card o"><div class="name">אברם רודמן ונחה, לבית אופנהיים</div><div class="meta">נישאו 14.3.1876, טלז</div><div class="note">מועמדים להורי איטה גנה. יש להם בת בשם איטה גנה, שנולדה ב-1878, אבל הגיל לא מתאים. לא הוכח.</div></div>
+  </div>
+</section>
+
+<section id="timeline">
+  <h2>ציר זמן</h2>
+  <div class="timeline">
+    <div class="ev"><span class="yr">1821 בערך</span> – נולד שמעל בן צודיק יודקובסקי, צ'קישקה. <div class="src">מפתח LitvakSIG, תעודות מעבר 1863</div></div>
+    <div class="ev"><span class="yr">1864–1866 בערך</span> – נולדו ראובן מילצקי (אורליה) ורייזה זלדה יודקובסקי (צ'קישקה).</div>
+    <div class="ev"><span class="yr">1870–1880</span> – ראובן לומד בחדר ובישיבות בביאליסטוק. <div class="src">"יהדות ליטא" ג', עמ' 67</div></div>
+    <div class="ev"><span class="yr">1889</span> – ראובן מתגורר בצ'קישקה. הוא עדיין רשום בקהילת אורליה. <div class="src">רשימת צ'קישקה, KRA I-106/1/5345</div></div>
+    <div class="ev"><span class="yr">25.11.1890</span> – נישואי ראובן ורייזל, י"ג כסלו תרנ"א, בצ'קישקה, בידי "הרב הרוחני אברהם" (לוונטל). כתובה: 75 רובל. <div class="src">LVIA 1226/1/2074, רשומה 4</div></div>
+    <div class="ev"><span class="yr">1891</span> – נולדה הבת רחה לאה, צ'קישקה.</div>
+    <div class="ev"><span class="yr">1892–1894</span> – ראובן ברשימת התושבים שאינם רשומים בצ'קישקה ועומדים לעבור לרישום במקום מגוריהם.</div>
+    <div class="ev"><span class="yr">1898–1907</span> – המשפחה בוילייאמפולה (סלובודקה). נולדים חייקל, שעיה, התאומים מאיר פנחס ושמעון אליעזר, ואסתר רבקה.</div>
+    <div class="ev"><span class="yr">1907</span> – בטלז נישאים הורי שרה, משה אהרן רזניק ואיטה גנה רודמן. שרה נולדת באותה שנה.</div>
+    <div class="ev"><span class="yr">1915</span> – גירוש יהודי קובנה. ראובן מגיע ללובני שבאוקראינה, פועל למען הפליטים וכותב חוברת על "גירוש קובנה". <div class="src">"יהדות ליטא"; עדות משפחתית על קרמנצ'וג</div></div>
+    <div class="ev"><span class="yr">17.7.1922</span> – אישור של נציגות ליטא באוקראינה, חרקוב: ראובן, רייזה ושישה ילדים.</div>
+    <div class="ev"><span class="yr">16.9.1922</span> – תעודת שיבה מאובליאי. המשפחה מוחזרת לנפת צ'קישקה. <div class="src">תעודה 79504</div></div>
+    <div class="ev"><span class="yr">1925</span> – ראובן עולה לארץ ישראל ומתיישב בירושלים. בהמשך נוסע שוב לארה"ב בשליחות הישיבה.</div>
+    <div class="ev"><span class="yr">1926–1927 בערך</span> – שמעון אליעזר עולה, לפי המשפחה עם אחותו.</div>
+    <div class="ev"><span class="yr">1935</span> – שרה רזניק עולה דרך טריאסטה. י"ב אלול תרצ"ה, 10.9.1935: חתונת שמעון אליעזר ושרה בירושלים.</div>
+    <div class="ev"><span class="yr">1935–1936</span> – מכתב רפרנט האזרחות הליטאי, שבו נזכרים בעלי אזרחות פלשתינאית, ובהם "Milecki S.L.". <div class="src">LCVA 1367/10/130</div></div>
+    <div class="ev"><span class="yr">1942</span> – מודעת בית משפט על פרדס בפתח תקווה, גוש 6372 חלקה 6: ראובן מילצקי, מאשה קפלנסקי ורחל לאה ספוקוינה. <div class="src">Palestine Post, 25.2.1942</div></div>
+    <div class="ev"><span class="yr">17.4.1953</span> – פטירת ר' ראובן, ב' אייר תשי"ג. מודעת ניחומים לחתנו הרב וין ב"הארץ" ב-22.4.1953.</div>
+    <div class="ev"><span class="yr">1964 · 1988 · 1993</span> – פטירת חייקל (כ"ה שבט תשכ"ד), שמעון אליעזר (י' טבת תשמ"ט) ואריה דוב (כ"ו טבת תשנ"ג).</div>
+  </div>
+</section>
+
+<section id="reuven">
+  <h2>ר' ראובן מילצקי</h2>
+  <p class="lead">לפי הערך עליו ב"יהדות ליטא", כרך ג' (תל אביב, 1967), עמ' 67–68, בהשוואה למסמכי הארכיון.</p>
+  <blockquote>מילצקי, ר' ראובן ב"ר דב-משה · נו' באורלה (פ' גרודנה) והתחנך בביאליסטוק בחדר ובישיבות</blockquote>
+  <div class="cols">
+    <div class="box"><h4>לפי הערך</h4><ul>
+      <li>ממנהליה הרוחניים של ישיבת "כנסת ישראל" בסלובודקה. ר"מ בישיבת ר' הירשל (לויתן). סירב לכהן כרב.</li>
+      <li>נודע בקומתו הזקופה, ביושרו, בבקיאותו בתנ"ך ובכוחו כנואם.</li>
+      <li>אחרי גירוש קובנה הגיע ללובני. כתב חוברת פיוטית על הגירוש.</li>
+      <li>אחרי המלחמה נשלח לארה"ב מטעם הישיבה. עלה ב-1925, וחזר לארץ סופית אחרי מלחמת העולם השנייה.</li>
+      <li>כתב ב"קול ישראל". חיבר את "חיי הגוף והנפש" (ירושלים, תרצ"ה) ואת "בשובי לירושלים".</li>
+    </ul></div>
+    <div class="box"><h4>מה אומרים המסמכים</h4><ul>
+      <li>הוא היה רשום בקהילת אורליה, מחוז ביילסק, גם בנישואי 1890 וגם ברשימה של 1892–1894. <span class="dot d-g" style="width:9px;height:9px"></span></li>
+      <li>בכרטיס הדרכון מ-1923 עיסוקו רשום "Rabinas", כלומר רב.</li>
+      <li><b>סתירה בשנת הלידה:</b> הערך נותן 1874, ובעברית תרל"ג, שהיא 1872–1873. בשנת 1890 גילו רשום 24, ובשנים 1892–1894 גילו 26. לפי זה נולד בסביבות 1866. <span class="dot d-r" style="width:9px;height:9px"></span></li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="docs">
+  <h2>מסמכי המקור</h2>
+  <p class="lead">המסמכים העיקריים שנקראו ותורגמו במחקר. בעמודה "נמצא" מופיע מי איתר את המסמך.</p>
+  <div class="wrap"><table class="tbl">
+    <thead><tr><th>מסמך</th><th>תאריך</th><th>מה הוא מוכיח</th><th>סימוכין</th><th>נמצא</th></tr></thead>
+    <tbody>
+      <tr><td>רשומת נישואין, ראובן ורייזל</td><td>25.11.1890</td><td>אבות שני בני הזוג (דוב משה; משה יצחק). החתן רשום באורליה, הכלה בצ'קישקה.</td><td class="ltr">LVIA 1226/1/2074, rec. 4 (FS film 004222297, img. 790)</td><td>Instinct</td></tr>
+      <tr><td>רשימת תושבי צ'קישקה הרשומים בקהילות אחרות</td><td>1892–1894</td><td>ראובן, רייזה ורחה לאה. קהילת אורליה. גר בצ'קישקה מ-1889.</td><td class="ltr">KRA I-106/1/5345, img. 677, line 22</td><td>Instinct</td></tr>
+      <tr><td>מפתח לידות ילדי ראובן</td><td>1891–1907</td><td>שישה ילדים. הסבים: ברקו-משה ומובשה איצקו.</td><td class="ltr">LitvakSIG ALD; LVIA 1226</td><td>יהודה</td></tr>
+      <tr><td>תעודת לידה, שימן לייזר</td><td>10.6.1904</td><td>לידת שמעון אליעזר בוילייאמפולה להורים ראובן ורייזה זלדה.</td><td class="ltr">LVIA 1226/1/2165, l.27v–28, rec. 40</td><td>ארכיון, 2019</td></tr>
+      <tr><td>תעודת לידה, שרה</td><td>16.11.1907</td><td>לידת שרה בטלז להורים משה אהרן ואיטה גנה.</td><td class="ltr">LVIA 1226/1/2068, rec. 28</td><td>ארכיון, 2019</td></tr>
+      <tr><td>נישואי הורי שרה</td><td>19.1.1907</td><td>משה אהרן בן אברם רזניק, אלמן, מסביר; איטה גנה בת אברם רודמן, מטלז.</td><td class="ltr">LVIA 1226/1/2070, rec. 3</td><td>Instinct</td></tr>
+      <tr><td>אישור נציגות ליטא באוקראינה</td><td>17.7.1922</td><td>המשפחה בחרקוב: ראובן, רייזה ושישה ילדים.</td><td class="ltr">KRA 10-2895 (attachment)</td><td>ארכיון, 2019</td></tr>
+      <tr><td>תעודת שיבה, אובליאי</td><td>16.9.1922</td><td>שיבה לליטא. רייזה, הבנות מאשה ורייזה, והבן שמעל.</td><td class="ltr">No. 79504</td><td>ארכיון, 2019</td></tr>
+      <tr><td>פטירת משה אברם בן שמעון יודקובסקי</td><td>8.2.1913</td><td>בן משפחת יודקובסקי מצ'קישקה, בן 63.</td><td class="ltr">LVIA 1226/1/1976, img. 541, rec. 3</td><td>Instinct</td></tr>
+      <tr><td>הזמנת חתונה, "קול ישראל"</td><td>5.9.1935</td><td>שמעון אליעזר בן ראובן וריזא זעלדא; שרה בת הרב משה רזניק.</td><td class="ltr">NLI, kolisrael 1935-09-05</td><td>Instinct</td></tr>
+      <tr><td>חוזה נסיעה ומסמכי עלייה של שרה</td><td>1935</td><td>יציאה דרך טריאסטה ליפו.</td><td class="ltr">LCVA 1367/5/243; 588/1/3458</td><td>ארכיון, 2019</td></tr>
+      <tr><td>מודעת בית משפט</td><td>25.2.1942</td><td>ראובן, מאשה קפלנסקי ורחל לאה ספוקוינה. פרדס בפתח תקווה.</td><td class="ltr">Palestine Post</td><td>Instinct</td></tr>
+      <tr><td>"יהדות ליטא" ג'</td><td>1967</td><td>ביוגרפיה של ר' ראובן.</td><td class="ltr">pp. 67–68</td><td>Instinct</td></tr>
+      <tr><td>מצבות: ראובן, שמעון אליעזר, אריה דוב, חייקל</td><td>1953–1993</td><td>שמות האבות ותאריכי הפטירה.</td><td>הר המנוחות; סגולה</td><td>יהודה, Instinct</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="map">
+  <h2>מפת המקומות</h2>
+  <p class="lead">לחצו על נקודה כדי לראות מה היה המקום בזמנו ומה הוא היום. הקווים מראים את דרכי המשפחה. המיקומים מדויקים, אבל הגבולות שעל המפה מסומנים רק כשמות של המדינות של היום.</p>
+  <div class="mapwrap">
+    <svg id="mapsvg" viewBox="0 0 1000 820" role="img" aria-label="מפת מקומות המשפחה">
+      <defs>
+        <pattern id="grid" width="62.5" height="101" patternUnits="userSpaceOnUse"><path d="M62.5 0 L0 0 0 101" fill="none" stroke="#e9dfcf" stroke-width="1"/></pattern>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7a4b2a"/></marker>
+        <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a33a3a"/></marker>
+        <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2f5d62"/></marker>
+      </defs>
+      <rect width="1000" height="820" fill="#fbf7f0"/>
+      <rect width="1000" height="820" fill="url(#grid)"/>
+      <g class="cty">
+        <text x="14" y="30" style="font-size:16px">הים הבלטי</text>
+        <text x="420" y="40">לטביה</text>
+        <text x="70" y="250">ליטא</text>
+        <text x="40" y="520">פולין</text>
+        <text x="460" y="330">בלארוס</text>
+        <text x="520" y="790">אוקראינה</text>
+        <text x="830" y="330">רוסיה</text>
+      </g>
+      <polyline class="route r1" points="146,394 135,350 158,145 178,166" marker-end="url(#arr)"/>
+      <path class="route r2" d="M181,171 C 400,350 600,520 745,660" marker-end="url(#arr3)"/>
+      <path class="route r2" d="M750,665 L946,668" marker-end="url(#arr3)"/>
+      <path class="route r3" d="M952,668 C 800,300 450,90 304,68" marker-end="url(#arr3)"/>
+      <path class="route r3" d="M299,67 C 250,100 210,140 186,166" marker-end="url(#arr3)"/>
+      <path class="route r4" d="M338,177 C 230,90 130,70 84,64" marker-end="url(#arr2)"/>
+      <path class="route r5" d="M190,190 L 400,805" marker-end="url(#arr)"/>
+      <text x="410" y="808" class="offmap">אל ירושלים, 1925–1935</text>
+      <g id="pts"></g>
+    </svg>
+    <aside id="mapinfo" class="box">
+      <h4 id="mi-title">בחרו מקום</h4>
+      <div id="mi-body" style="font-size:15px;color:var(--muted)">לחצו על אחת הנקודות במפה.</div>
+    </aside>
+  </div>
+  <div class="maplegend">
+    <span><i class="ln" style="background:#7a4b2a"></i> דרכו של ראובן: אורליה, ביאליסטוק, צ'קישקה, סלובודקה</span>
+    <span><i class="ln dash" style="border-color:#a33a3a"></i> גירוש 1915 ושיבה 1922</span>
+    <span><i class="ln" style="background:#2f5d62"></i> ענף רזניק: סביר, טלז</span>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted)">מחוץ למפה: <b>טריאסטה</b> (איטליה), נמל היציאה של שרה ב-1935. <b>יפו</b> ו<b>ירושלים</b>, שבהן התיישבה המשפחה מ-1925. <b>פתח תקווה</b>, שבה היה הפרדס ושם קבור שמעון אליעזר.</p>
+</section>
+
+<section id="places">
+  <h2>מפתח מקומות</h2>
+  <p class="lead">השמות כפי שנרשמו בזמנם, והזיהוי שלהם היום. גבולות ושמות השתנו כמה פעמים.</p>
+  <div class="wrap"><table class="tbl">
+    <thead><tr><th>במסמכים</th><th>היום</th><th>שייכות בזמנו</th><th>הקשר במשפחה</th></tr></thead>
+    <tbody>
+      <tr><td>אורליה · Орля · אורלה</td><td class="ltr">Orla, Poland</td><td>מחוז ביילסק, פלך גרודנה</td><td>קהילת הרישום של ראובן ושל אביו</td></tr>
+      <tr><td>ביאליסטוק</td><td class="ltr">Białystok, Poland</td><td>פלך גרודנה</td><td>ראובן למד שם</td></tr>
+      <tr><td>צ'קישקה · Чекишки · צייקישאק</td><td class="ltr">Čekiškė, Lithuania</td><td>פלך וילנה עד 1843, אחר כך פלך קובנה</td><td>משפחת יודקובסקי; נישואי 1890</td></tr>
+      <tr><td>וילייאמפולה · סלובודקה · Вилиямполь</td><td class="ltr">Vilijampolė, Kaunas</td><td>פרבר של קובנה, סופח לעיר ב-1919</td><td>ביתה של המשפחה 1898–1915; לידת שמעון</td></tr>
+      <tr><td>טלז · Тельши</td><td class="ltr">Telšiai, Lithuania</td><td>פלך קובנה</td><td>משפחות רזניק ורודמן; לידת שרה</td></tr>
+      <tr><td>סביר · Свирь</td><td class="ltr">Svir, Belarus</td><td>מחוז שווינציאן, פלך וילנה</td><td>קהילת הרישום של משה אהרן רזניק</td></tr>
+      <tr><td>לובני · Лубны</td><td class="ltr">Lubny, Ukraine</td><td>פלך פולטבה</td><td>ראובן בתקופת הגירוש, 1915</td></tr>
+      <tr><td>חרקוב</td><td class="ltr">Kharkiv, Ukraine</td><td>בירת אוקראינה הסובייטית</td><td>אישור יולי 1922</td></tr>
+      <tr><td>אובליאי · Abeliai</td><td class="ltr">Obeliai, Lithuania</td><td>נקודת הכניסה של השבים מרוסיה</td><td>תעודת השיבה, ספטמבר 1922</td></tr>
+      <tr><td>צריצין (?)</td><td class="ltr">Volgograd, Russia (?)</td><td>–</td><td>"הרב מצריצין", הרב משה רזניק. השערה.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="open">
+  <h2>שאלות פתוחות וכיווני המשך</h2>
+  <div class="cols">
+    <div class="box"><h4>מעל דב-משה (אורליה)</h4><ul>
+      <li>פנקסים ששרדו בביאליסטוק (JRI-Poland): פטירת דב-משה, שתציין את שם אביו.</li>
+      <li>באורליה שרד מעט מאוד. ממפקד 1897 שרדו רק 14 רשומות.</li>
+      <li>ייתכן ששמות ילדי ראובן נקראו על שם קרובים שנפטרו: חייקל, וולף, מאיר, פנחס.</li>
+    </ul></div>
+    <div class="box"><h4>ענף יודקובסקי</h4><ul>
+      <li>האם משה יצחק הוא איצקו בן שמעל? רשימות המשפחות של צ'קישקה מ-1874 ומ-1875 יכריעו.</li>
+      <li>אם כן, יש שרשרת של צודיק, שמעל, משה יצחק ורייזה, כלומר שלושה דורות מעל רייזה.</li>
+    </ul></div>
+    <div class="box"><h4>ענף רזניק-רודמן</h4><ul>
+      <li>מי הייתה אמה של איטה גנה?</li>
+      <li>האם משה אהרן הוא נכדו של אליאש-משה מסביר?</li>
+      <li>מה פירוש "הרב מצריצין"?</li>
+    </ul></div>
+    <div class="box"><h4>חוליות להשלמה</h4><ul>
+      <li>מסמך שמחבר במפורש את יוסף (1938) לשמעון אליעזר ושרה.</li>
+      <li>שמות הנישואין של הבנות, ומי מהן נישאה לרב וין.</li>
+      <li>החוברת "גירוש קובנה" ומאמרי ראובן ב"קול ישראל".</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>על המחקר</h2>
+  <p>המחקר נעשה ביוזמת יהודה מילצקי, בשיתוף שני כלי בינה מלאכותית שבקרו זה את עבודת זה. Instinct איתר רוב המסמכים החדשים. Claude קרא ותרגם את סריקות המקור ובדק את הקריאות. כל ממצא נבדק מול צילום המקור. סתירות סומנו ולא יושבו בכוח.</p>
+  <details><summary>מקורות וארכיונים שנבדקו</summary>
+    <ul>
+      <li>הארכיון ההיסטורי הממלכתי של ליטא (LVIA): פנקסי המטריקה, קרן 1226.</li>
+      <li>הארכיון המרכזי הממלכתי של ליטא (LCVA): תיקי דרכונים ואזרחות, קרנות 1367 ו-588.</li>
+      <li>הארכיון האזורי בקובנה (KRA): רשימות משפחה, מעבר ומגורים, קרנות I-61 ו-I-106.</li>
+      <li>FamilySearch: סריקות הפנקסים.</li>
+      <li>LitvakSIG / JewishGen: מפתחות שמות.</li>
+      <li>הספרייה הלאומית: עיתונות היסטורית (קול ישראל, הארץ, Palestine Post).</li>
+      <li>"יהדות ליטא" כרך ג' (1967); Pinkas HaKehillot, ליטא; KehilaLinks, סביר ואורליה.</li>
+      <li>מצבות: הר המנוחות, סגולה.</li>
+    </ul>
+  </details>
+  <details><summary>כללי עבודה</summary>
+    <ul>
+      <li>אין חיבור בין אנשים על סמך דמיון בשם בלבד.</li>
+      <li>קהילת הרישום לא נחשבת למקום לידה בלי מסמך שמראה זאת.</li>
+      <li>מפתח של מאגר אינו מקור. מקור הוא הדף המקורי.</li>
+      <li>פרטים מזהים של בני משפחה חיים (מספרי זהות, כתובות) אינם מופיעים בדף.</li>
+    </ul>
+  </details>
+</section>
+
+</main>
+<script>
+(function(){
+  var P=[
+   {id:'orla',n:'אורליה',x:146,y:394,dx:-12,dy:6,anchor:'end',
+    t:'אורליה · Орля · אורלה',
+    then:'עיירה בפלך גרודנה שבאימפריה הרוסית, מחוז ביילסק. בשנת 1900 חיו בה 2,310 יהודים, רוב התושבים. בעיירה עמד בית כנסת מהמאה ה-17.',
+    now:'הכפר Orla במזרח פולין (מחוז פודלאסקי), כ-12 ק"מ דרום-מזרחית לביילסק פודלאסקי. הקהילה נרצחה בטרבלינקה בנובמבר 1942. בית הכנסת עומד עד היום.',
+    fam:'ראובן נולד כאן לפי "יהדות ליטא". הוא ואביו דב-משה היו רשומים בקהילת אורליה.'},
+   {id:'bial',n:'ביאליסטוק',x:135,y:350,dx:-12,dy:4,anchor:'end',
+    t:'ביאליסטוק · Белосток',
+    then:'עיר מחוז בפלך גרודנה, מרכז יהודי ותעשייתי גדול, עם ישיבות רבות.',
+    now:'Białystok, בירת מחוז פודלאסקי בפולין.',
+    fam:'ראובן התחנך כאן בחדר ובישיבות.'},
+   {id:'cek',n:"צ'קישקה",x:158,y:145,dx:-12,dy:-6,anchor:'end',
+    t:"צ'קישקה · Чекишки · צייקישאק",
+    then:'עיירה במחוז קובנה. עד 1843 השתייכה לפלך וילנה, ואחר כך לפלך קובנה. ב-1897 חיו בה 432 יהודים מתוך 668 תושבים. אחרי 1844 אוחדה לקהילת מס אחת עם סרדניק וולונה.',
+    now:'Čekiškė, כפר במחוז קאונס בליטא.',
+    fam:'כאן הייתה רשומה משפחת יודקובסקי (צודיק, שמעל, משה יצחק). כאן נישאו ראובן ורייזל ב-1890, וכאן נולדה רחה לאה ב-1891. המשפחה הוחזרה לנפה הזו ב-1922.'},
+   {id:'slob',n:'וילייאמפולה (סלובודקה)',x:181,y:171,dx:-6,dy:26,anchor:'end',
+    t:'וילייאמפולה · סלובודקה · Вилиямполь',
+    then:'פרבר על הגדה הצפונית של נהר הנריס, מול קובנה. מרכז ישיבת סלובודקה, "כנסת ישראל". סופח לקובנה ב-1919.',
+    now:'Vilijampolė, שכונה בעיר קאונס בליטא. בשנים 1941–1944 היה כאן גטו קובנה.',
+    fam:'בית המשפחה בשנים 1898–1915. כאן נולדו שמעון אליעזר והתאום מאיר פנחס (1904). ראובן היה ממנהלי הישיבה.'},
+   {id:'telz',n:'טלז',x:78,y:63,dx:12,dy:-8,anchor:'start',rez:1,
+    t:'טלז · Тельши',
+    then:'עיר מחוז בפלך קובנה, מקום ישיבת טלז המפורסמת.',
+    now:'Telšiai, עיר בצפון-מערב ליטא.',
+    fam:'משפחת רודמן. כאן נישאו הורי שרה ב-1907, וכאן נולדה שרה.'},
+   {id:'svir',n:'סביר',x:338,y:177,dx:12,dy:6,anchor:'start',rez:1,
+    t:'סביר · Свирь',
+    then:'עיירה במחוז שווינציאן, פלך וילנה.',
+    now:'Svir, כפר במחוז מיאדל שבבלארוס.',
+    fam:'קהילת הרישום של משה אהרן רזניק, אבי שרה. ייתכן שכאן חי אליאש-משה רזניק ב-1858 (השערה).'},
+   {id:'obel',n:'אובליאי',x:299,y:67,dx:12,dy:-8,anchor:'start',
+    t:'אובליאי · Abeliai',
+    then:'עיירה סמוכה לגבול לטביה. בשנים 1920–1922 שימשה נקודת כניסה לשבים מרוסיה הסובייטית לליטא העצמאית.',
+    now:'Obeliai, עיירה במחוז רוקישקיס בליטא.',
+    fam:'ב-16.9.1922 קיבלה כאן המשפחה את תעודת השיבה, מס\' 79504.'},
+   {id:'lub',n:'לובני',x:750,y:665,dx:-12,dy:-10,anchor:'end',
+    t:'לובני · Лубны',
+    then:'עיר מחוז בפלך פולטבה באימפריה הרוסית. במלחמת העולם הראשונה הגיעו אליה פליטים ומגורשים מליטא.',
+    now:'Lubny, עיר במחוז פולטבה באוקראינה.',
+    fam:'אחרי גירוש קובנה (1915) פעל כאן ראובן למען הפליטים.'},
+   {id:'krem',n:'קרמנצ\'וג',x:776,y:760,dx:12,dy:6,anchor:'start',
+    t:"קרמנצ'וג · Кременчуг",
+    then:'עיר בפלך פולטבה, עם קהילה יהודית גדולה.',
+    now:'Kremenchuk, אוקראינה.',
+    fam:'לפי המסורת המשפחתית, אחד המקומות שאליהם הגיעה המשפחה בתקופת הגירוש. לא נמצא עדיין מסמך.'},
+   {id:'khar',n:'חרקוב',x:952,y:668,dx:-12,dy:26,anchor:'end',
+    t:'חרקוב · Харьков',
+    then:'בשנים 1919–1934 בירת אוקראינה הסובייטית. בה ישבה נציגות ליטא שהנפיקה אישורי שיבה.',
+    now:'Kharkiv, העיר השנייה בגודלה באוקראינה.',
+    fam:'ב-17.7.1922 הונפק כאן אישור לראובן, לרייזה ולשישה ילדים.'},
+   {id:'tsar',n:'צריצין (?) – מזרחה, מחוץ למפה',x:985,y:795,dx:-12,dy:-10,anchor:'end',hyp:1,
+    t:'צריצין · Царицын (השערה)',
+    then:'עיר על הוולגה. לפי הזמנת החתונה של 1935, הרב משה רזניק היה "הרב מצריצין". הזיהוי עם צריצין שעל הוולגה הוא השערה.',
+    now:'Volgograd, רוסיה. נקראה סטלינגרד בשנים 1925–1961.',
+    fam:'אולי מקום כהונתו של הרב משה רזניק, אבי שרה. לא אומת.'}
+  ];
+  var g=document.getElementById('pts'), NS='http://www.w3.org/2000/svg';
+  P.forEach(function(p){
+    var a=document.createElementNS(NS,'g');
+    a.setAttribute('class','pt'+(p.rez?' rez':'')+(p.hyp?' hyp':''));
+    a.setAttribute('tabindex','0');
+    var c=document.createElementNS(NS,'circle');
+    c.setAttribute('cx',p.x);c.setAttribute('cy',p.y);c.setAttribute('r',7);
+    var t=document.createElementNS(NS,'text');
+    t.setAttribute('x',p.x+p.dx);t.setAttribute('y',p.y+p.dy);t.setAttribute('text-anchor',p.anchor);
+    t.textContent=p.n;
+    a.appendChild(c);a.appendChild(t);
+    function show(){
+      document.querySelectorAll('.pt.on').forEach(function(e){e.classList.remove('on')});
+      a.classList.add('on');
+      document.getElementById('mi-title').textContent=p.t;
+      document.getElementById('mi-body').innerHTML=
+        '<div class="then"><b>אז:</b> '+p.then+'</div>'+
+        '<div class="now"><b>היום:</b> '+p.now+'</div>'+
+        '<div class="now"><b>במשפחה:</b> '+p.fam+'</div>';
+    }
+    a.addEventListener('click',show);
+    a.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')show()});
+    g.appendChild(a);
+  });
+})();
+</script>
+<footer>משפחת מילצקי · מחקר שורשים · עודכן בנובמבר 2026</footer>
+</body>
+</html>
