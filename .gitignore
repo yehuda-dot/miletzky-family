@@ -1,5 +1,5 @@
-*.zip
-CLAUDE.md
+﻿*.zip
+CLAUDE.local.md
 materials/MANIFEST.md
 
 # ⚠️ ב-MANIFEST: לא לפרסם לפני אישור מפורש של יהודה
@@ -8,3 +8,4 @@ materials/1907-reznik-rudman-marriage-*
 materials/1913-death-movsha-abram-yudkovsky-*
 materials/1892-94-cekiske-list-*
 materials/grave-*
+.claude/

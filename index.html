@@ -90,6 +90,40 @@ blockquote{margin:10px 0;padding:10px 14px;background:#f8f1e4;border-right:4px s
 .maplegend span{display:inline-flex;align-items:center;gap:6px}
 .ln{display:inline-block;width:26px;height:3px}
 .ln.dash{height:0;border-top:3px dashed}
+/* gallery */
+.g-group{font-family:"Frank Ruhl Libre",serif;font-size:21px;margin:26px 0 10px;color:var(--ink)}
+.g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.g-card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:70px;transition:box-shadow .2s}
+.g-card:target{box-shadow:0 0 0 3px var(--accent)}
+.g-card button.g-open{all:unset;cursor:pointer;display:block}
+.g-card button.g-open:focus-visible{outline:3px solid var(--accent2);outline-offset:-3px}
+.g-thumb{width:100%;height:170px;object-fit:cover;object-position:top;display:block;background:#f3ebde;border-bottom:1px solid var(--line)}
+.g-body{padding:10px 12px 12px;font-size:14px}
+.g-title{font-weight:700;font-size:15px;line-height:1.4}
+.g-date{color:var(--muted);font-size:13px;margin-top:2px}
+.g-lv{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--muted);margin-top:4px}
+.g-count{font-size:12px;color:var(--accent2);margin-top:4px}
+.g-card.pending{border-style:dashed;background:#fbf7f0}
+.g-ph{height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:12px;color:var(--muted);font-size:13px;border-bottom:1px dashed var(--line)}
+.g-ph b{color:var(--accent);font-size:14px}
+.g-body .ref{direction:ltr;unicode-bidi:isolate;font-size:12.5px;color:var(--muted);display:block;margin-top:4px}
+.g-body a{color:var(--accent2)}
+.g-raw{border:none;background:none;margin:6px 0 4px;padding:0}
+.g-raw summary{padding:2px 0;font-size:13px}
+.g-raw .raw{background:#f8f1e4;border-right:3px solid var(--accent);border-radius:6px;padding:6px 8px;margin:6px 0;font-size:13px}
+.glink{font-size:12.5px;white-space:nowrap;color:var(--accent2)}
+dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(1000px,96vw);width:96vw;max-height:94vh;background:var(--paper);color:var(--ink)}
+dialog#lb::backdrop{background:rgba(30,20,10,.75)}
+.lb-wrap{display:grid;grid-template-columns:1fr 320px;max-height:94vh}
+.lb-img{background:#2b2621;display:flex;align-items:center;justify-content:center;position:relative;min-height:240px}
+.lb-img img{max-width:100%;max-height:94vh;display:block}
+.lb-info{padding:16px 18px;overflow-y:auto;max-height:94vh;font-size:14.5px}
+.lb-info h3{margin:0 30px 4px 0}
+.lb-info .raw{background:#f8f1e4;border-right:3px solid var(--accent);border-radius:6px;padding:8px 10px;margin:8px 0;font-size:14px}
+.lb-close{position:absolute;top:8px;left:8px;z-index:2;background:#fff;border:1px solid var(--line);border-radius:999px;width:34px;height:34px;font-size:18px;cursor:pointer}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;border-radius:999px;width:38px;height:38px;font-size:20px;cursor:pointer}
+.lb-prev{right:8px}.lb-next{left:8px}
+@media (max-width:760px){.lb-wrap{grid-template-columns:1fr;overflow-y:auto}.lb-img img{max-height:60vh}.lb-info{max-height:none}}
 @media (max-width:820px){.mapwrap{grid-template-columns:1fr}}
 @media (max-width:600px){section{padding:18px 14px}.card{max-width:none}}
 </style>
@@ -107,6 +141,7 @@ blockquote{margin:10px 0;padding:10px 14px;background:#f8f1e4;border-right:4px s
   <li><a href="#timeline">ציר זמן</a></li>
   <li><a href="#reuven">ר' ראובן</a></li>
   <li><a href="#docs">מסמכים</a></li>
+  <li><a href="#gallery">המסמכים עצמם</a></li>
   <li><a href="#map">מפה</a></li>
   <li><a href="#places">מקומות</a></li>
   <li><a href="#open">שאלות פתוחות</a></li>
@@ -261,23 +296,44 @@ blockquote{margin:10px 0;padding:10px 14px;background:#f8f1e4;border-right:4px s
   <div class="wrap"><table class="tbl">
     <thead><tr><th>מסמך</th><th>תאריך</th><th>מה הוא מוכיח</th><th>סימוכין</th><th>נמצא</th></tr></thead>
     <tbody>
-      <tr><td>רשומת נישואין, ראובן ורייזל</td><td>25.11.1890</td><td>אבות שני בני הזוג (דוב משה; משה יצחק). החתן רשום באורליה, הכלה בצ'קישקה.</td><td class="ltr">LVIA 1226/1/2074, rec. 4 (FS film 004222297, img. 790)</td><td>Instinct</td></tr>
-      <tr><td>רשימת תושבי צ'קישקה הרשומים בקהילות אחרות</td><td>1892–1894</td><td>ראובן, רייזה ורחה לאה. קהילת אורליה. גר בצ'קישקה מ-1889.</td><td class="ltr">KRA I-106/1/5345, img. 677, line 22</td><td>Instinct</td></tr>
-      <tr><td>מפתח לידות ילדי ראובן</td><td>1891–1907</td><td>שישה ילדים. הסבים: ברקו-משה ומובשה איצקו.</td><td class="ltr">LitvakSIG ALD; LVIA 1226</td><td>יהודה</td></tr>
-      <tr><td>תעודת לידה, שימן לייזר</td><td>10.6.1904</td><td>לידת שמעון אליעזר בוילייאמפולה להורים ראובן ורייזה זלדה.</td><td class="ltr">LVIA 1226/1/2165, l.27v–28, rec. 40</td><td>ארכיון, 2019</td></tr>
-      <tr><td>תעודת לידה, שרה</td><td>16.11.1907</td><td>לידת שרה בטלז להורים משה אהרן ואיטה גנה.</td><td class="ltr">LVIA 1226/1/2068, rec. 28</td><td>ארכיון, 2019</td></tr>
-      <tr><td>נישואי הורי שרה</td><td>19.1.1907</td><td>משה אהרן בן אברם רזניק, אלמן, מסביר; איטה גנה בת אברם רודמן, מטלז.</td><td class="ltr">LVIA 1226/1/2070, rec. 3</td><td>Instinct</td></tr>
-      <tr><td>אישור נציגות ליטא באוקראינה</td><td>17.7.1922</td><td>המשפחה בחרקוב: ראובן, רייזה ושישה ילדים.</td><td class="ltr">KRA 10-2895 (attachment)</td><td>ארכיון, 2019</td></tr>
-      <tr><td>תעודת שיבה, אובליאי</td><td>16.9.1922</td><td>שיבה לליטא. רייזה, הבנות מאשה ורייזה, והבן שמעל.</td><td class="ltr">No. 79504</td><td>ארכיון, 2019</td></tr>
-      <tr><td>פטירת משה אברם בן שמעון יודקובסקי</td><td>8.2.1913</td><td>בן משפחת יודקובסקי מצ'קישקה, בן 63.</td><td class="ltr">LVIA 1226/1/1976, img. 541, rec. 3</td><td>Instinct</td></tr>
-      <tr><td>הזמנת חתונה, "קול ישראל"</td><td>5.9.1935</td><td>שמעון אליעזר בן ראובן וריזא זעלדא; שרה בת הרב משה רזניק.</td><td class="ltr">NLI, kolisrael 1935-09-05</td><td>Instinct</td></tr>
-      <tr><td>חוזה נסיעה ומסמכי עלייה של שרה</td><td>1935</td><td>יציאה דרך טריאסטה ליפו.</td><td class="ltr">LCVA 1367/5/243; 588/1/3458</td><td>ארכיון, 2019</td></tr>
-      <tr><td>מודעת בית משפט</td><td>25.2.1942</td><td>ראובן, מאשה קפלנסקי ורחל לאה ספוקוינה. פרדס בפתח תקווה.</td><td class="ltr">Palestine Post</td><td>Instinct</td></tr>
+      <tr><td>רשומת נישואין, ראובן ורייזל <a class="glink" href="#g-1890">← לצילום</a></td><td>25.11.1890</td><td>אבות שני בני הזוג (דוב משה; משה יצחק). החתן רשום באורליה, הכלה בצ'קישקה.</td><td class="ltr">LVIA 1226/1/2074, rec. 4 (FS film 004222297, img. 790)</td><td>Instinct</td></tr>
+      <tr><td>רשימת תושבי צ'קישקה הרשומים בקהילות אחרות <a class="glink" href="#g-1892">← לצילום</a></td><td>1892–1894</td><td>ראובן, רייזה ורחה לאה. קהילת אורליה. גר בצ'קישקה מ-1889.</td><td class="ltr">KRA I-106/1/5345, img. 677, line 22</td><td>Instinct</td></tr>
+      <tr><td>מפתח לידות ילדי ראובן <a class="glink" href="#g-idx-births">← לצילום</a></td><td>1891–1907</td><td>שישה ילדים. הסבים: ברקו-משה ומובשה איצקו.</td><td class="ltr">LitvakSIG ALD; LVIA 1226</td><td>יהודה</td></tr>
+      <tr><td>תעודת לידה, שימן לייזר <a class="glink" href="#g-1904">← לצילום</a></td><td>10.6.1904</td><td>לידת שמעון אליעזר בוילייאמפולה להורים ראובן ורייזה זלדה.</td><td class="ltr">LVIA 1226/1/2165, l.27v–28, rec. 40</td><td>ארכיון, 2019</td></tr>
+      <tr><td>תעודת לידה, שרה <a class="glink" href="#g-1907b">← לצילום</a></td><td>16.11.1907</td><td>לידת שרה בטלז להורים משה אהרן ואיטה גנה.</td><td class="ltr">LVIA 1226/1/2068, rec. 28</td><td>ארכיון, 2019</td></tr>
+      <tr><td>נישואי הורי שרה <a class="glink" href="#g-1907m">← לצילום</a></td><td>19.1.1907</td><td>משה אהרן בן אברם רזניק, אלמן, מסביר; איטה גנה בת אברם רודמן, מטלז.</td><td class="ltr">LVIA 1226/1/2070, rec. 3</td><td>Instinct</td></tr>
+      <tr><td>אישור נציגות ליטא באוקראינה <a class="glink" href="#g-1922k">← לצילום</a></td><td>17.7.1922</td><td>המשפחה בחרקוב: ראובן, רייזה ושישה ילדים.</td><td class="ltr">KRA 10-2895 (attachment)</td><td>ארכיון, 2019</td></tr>
+      <tr><td>תעודת שיבה, אובליאי <a class="glink" href="#g-1922o">← לצילום</a></td><td>16.9.1922</td><td>שיבה לליטא. רייזה, הבנות מאשה ורייזה, והבן שמעל.</td><td class="ltr">No. 79504</td><td>ארכיון, 2019</td></tr>
+      <tr><td>פטירת משה אברם בן שמעון יודקובסקי <a class="glink" href="#g-1913">← לצילום</a></td><td>8.2.1913</td><td>בן משפחת יודקובסקי מצ'קישקה, בן 63.</td><td class="ltr">LVIA 1226/1/1976, img. 541, rec. 3</td><td>Instinct</td></tr>
+      <tr><td>הזמנת חתונה, "קול ישראל" <a class="glink" href="#g-1935w">← לצילום</a></td><td>5.9.1935</td><td>שמעון אליעזר בן ראובן וריזא זעלדא; שרה בת הרב משה רזניק.</td><td class="ltr">NLI, kolisrael 1935-09-05</td><td>Instinct</td></tr>
+      <tr><td>חוזה נסיעה ומסמכי עלייה של שרה <a class="glink" href="#g-1935s">← לצילום</a></td><td>1935</td><td>יציאה דרך טריאסטה ליפו.</td><td class="ltr">LCVA 1367/5/243; 588/1/3458</td><td>ארכיון, 2019</td></tr>
+      <tr><td>מודעת בית משפט <a class="glink" href="#g-1942">← לצילום</a></td><td>25.2.1942</td><td>ראובן, מאשה קפלנסקי ורחל לאה ספוקוינה. פרדס בפתח תקווה.</td><td class="ltr">Palestine Post</td><td>Instinct</td></tr>
       <tr><td>"יהדות ליטא" ג'</td><td>1967</td><td>ביוגרפיה של ר' ראובן.</td><td class="ltr">pp. 67–68</td><td>Instinct</td></tr>
-      <tr><td>מצבות: ראובן, שמעון אליעזר, אריה דוב, חייקל</td><td>1953–1993</td><td>שמות האבות ותאריכי הפטירה.</td><td>הר המנוחות; סגולה</td><td>יהודה, Instinct</td></tr>
+      <tr><td>מצבות: ראובן, שמעון אליעזר, אריה דוב, חייקל <a class="glink" href="#g-grave-reuven">← לצילום</a></td><td>1953–1993</td><td>שמות האבות ותאריכי הפטירה.</td><td>הר המנוחות; סגולה</td><td>יהודה, Instinct</td></tr>
     </tbody>
   </table></div>
 </section>
+
+<section id="gallery">
+  <h2>המסמכים עצמם</h2>
+  <p class="lead">צילומי המקורות שעליהם נשען המחקר. לחצו על כרטיס כדי לראות את הצילום בגדול, עם הסימוכין והקריאה. צילומים מ-FamilySearch וצילומי מצבות יוצגו כאן רק אחרי בדיקת זכויות. עד אז מופיעים במקומם הסימוכין וקישור למקור.</p>
+  <div id="g-root"></div>
+</section>
+
+<dialog id="lb" aria-label="תצוגה מוגדלת">
+  <div class="lb-wrap">
+    <div class="lb-img">
+      <button class="lb-nav lb-prev" type="button" aria-label="הצילום הקודם">›</button>
+      <img id="lb-img" alt="">
+      <button class="lb-nav lb-next" type="button" aria-label="הצילום הבא">‹</button>
+    </div>
+    <div class="lb-info" style="position:relative">
+      <button class="lb-close" type="button" aria-label="סגירה">✕</button>
+      <h3 id="lb-title"></h3>
+      <div id="lb-body"></div>
+    </div>
+  </div>
+</dialog>
 
 <section id="map">
   <h2>מפת המקומות</h2>
@@ -478,6 +534,178 @@ blockquote{margin:10px 0;padding:10px 14px;background:#f8f1e4;border-right:4px s
     a.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')show()});
     g.appendChild(a);
   });
+})();
+</script>
+<script>
+(function(){
+  var FS='https://www.familysearch.org/search/film/';
+  var LV={g:['d-g','מאומת במסמך מקור'],y:['d-y','סביר מאוד'],o:['d-o','השערה'],r:['d-r','סתירה פתוחה']};
+  /* המקור לכל הטקסטים: materials/MANIFEST.md. רק קבצים המסומנים ✅ מוצגים כצילום. */
+  var G=[
+   {h:'רשומות מטריקה',items:[
+    {id:'g-1890',pending:'fs',lv:['g'],t:'נישואי ראובן מילצקי ורייזל יודקובסקי, צ\'קישקה',
+     d:'13.11.1890 יוליאני = 25.11.1890 גרגוריאני = י"ג כסלו תרנ"א',
+     ref:'LVIA 1226/1/2074, rec. 4 · FS film 004222297, image 790',url:FS+'004222297',
+     raw:['רוסית: "Холостой Рувинъ Берковичъ Мовшовичъ Милецк[ій] Орлянскаго общества Бѣльскаго уѣзда съ дѣвицею Рейзе Мовшо-Ицковною(?) Юдковскою Чекишкскаго общества". לפי הכותרת הכלה בת 26 והחתן בן 24. "Духовный раввинъ Абрамъ". כתובה: 75 רובל.',
+          'עברית: "הבחור ראובן בן דוב משה מילעצקי מאורל[...] [...] פלך גראדנא / עם הבתולה רייזל בת משה יצחק יודקאווסקי מצייקישאק[...]". עדים: "שמואל נח שפארק, ליב פאסטאן".']},
+    {id:'g-1904',lv:['g'],t:'לידת שמעון אליעזר, וילייאמפולה',d:'10.6.1904',
+     files:[['1904-shimon-birth-certificate-LVIA.jpg','אישור ארכיון מ-2019. פרטי הנמען הוסתרו.']],
+     ref:'LVIA F.1226, ap.1, b.2165, l.27v–28, rec. 40',
+     raw:['Šimen Leizer נולד ב-10.6.1904 בוילייאמפולה, בן Rubin ו-Reize Zelde. בפנקס יש באותו תאריך גם רשומה 39, מאיר פנחס. אלה תאומים.']},
+    {id:'g-1907b',lv:['g'],t:'לידת שרה רזניק, טלז',d:'16.11.1907 יוליאני = 29.11.1907 גרגוריאני = כ"ג כסלו תרס"ח',
+     files:[['1907-sara-birth-certificate-LVIA.jpg','']],
+     ref:'LVIA F.1226, ap.1, b.2068, l.376v–377, rec. 28',
+     raw:['שרה (Сара), בת Movsha Aron (Aron) ו-Ita Gena רזניק.']},
+    {id:'g-1907m',pending:'fs',lv:['g'],t:'נישואי משה אהרן רזניק ואיטה גנה רודמן, טלז',d:'19.1.1907 יוליאני (17 שבט)',
+     ref:'LVIA 1226/1/2070, rec. 3 · FS film 004222296, image 160',url:FS+'004222296',
+     raw:['"Вдовецъ, мѣщ. Свирскаго общ. Свенцянскаго уѣзда Мовша-Аронъ Абрамовичъ Резникъ" / "дѣвица, мѣщ. Тельшевскаго общ. Ита-Гена Абрамовна Рудманъ". כלה 24, חתן 34. "Кетуба 84 руб.". עדים: Тевель Цвик, Хаим-Меер Брауде.']},
+    {id:'g-1913',pending:'fs',lv:['g'],t:'פטירת משה אברם בן שמעון יודקובסקי',d:'26.1.1913 יוליאני = 8.2.1913 גרגוריאני = א\' אדר א\' תרע"ג',
+     ref:'LVIA 1226/1/1976, rec. 3 · FS film 004221368, image 541',url:FS+'004221368',
+     raw:['"Чекишскій мѣщанинъ Мовша-Абрамъ Шимелевичъ Юдковскій". בעברית: "משה אברהם בן שמעון יודקאווסקי מעדת צייקיש[אק]". בן 63. מקום: וילייאמפולה.'],
+     note:['o','הקשר למשפחה לא הוכח. כנראה לא אבי רייזה, כי הגילים לא מתאימים.']},
+    {id:'g-1928',lv:['g'],t:'נישואי מנוחה רודמן, קרטינגה',d:'1928',
+     files:[['1928-menucha-rudman-marriage-page.jpg','סריקת ארכיון']],
+     ref:'LVIA 1817/1/158, rec. 3',
+     raw:['"Menuchė Rudmanaitė, netekėjusi, 32 m. amž., gim. ir gyv. Telšiuose ... Abramo-Dovido ir Nechės Rudmanų Ofenheimaitės duktė". החתן: Šaulis-Tuvjas Kacenelenbogenas, אלמן, יליד קלמה.'],
+     note:['o','קשר לאיטה גנה לא הוכח.']}
+   ]},
+   {h:'רשימות ומעבר',items:[
+    {id:'g-1892',pending:'fs',lv:['g'],t:'רשימת יהודים שגרים בצ\'קישקה ורשומים בקהילות אחרות',d:'1892–1894',
+     ref:'KRA I-106/1/5345 · FS film 102492084, images 671, 677',url:FS+'102492084',
+     raw:['שורה 22: "Рубинъ Берковъ-Мовшовъ Милецкій" 26; "жена Рейзе" 25; "дочь Рахе-Лея" 1. "Орлянскому [обществу], Бѣльскаго уѣзда, Гродненской губерніи". גר בעיירה מ-1889.']},
+    {id:'g-1922k',lv:['g','y'],t:'אישור נציגות ליטא באוקראינה, חרקוב',d:'17.7.1922',
+     files:[['1922-07-17-kharkiv-lithuanian-mission.jpg','']],
+     ref:'KRA 10-2895 (attachment) · No. 882(?)',
+     raw:['ראובן ("Ruvinas"), בן 53. אשתו Reiza. הילדים: "Chaikelis 29m. Šaja 16m. Simon Lezeris 14m. Maša 23m. Rosė 18m. Marijaša(?) 17m."']},
+    {id:'g-1922o',lv:['g'],t:'תעודת שיבה, אובליאי',d:'16.9.1922',
+     files:[['1922-09-16-obeliai-return-certificate.jpg','התעודה'],['1922-09-16-obeliai-family-line-closeup.jpg','שורת המשפחה, תקריב']],
+     ref:'No. 79504',
+     raw:['"Abelių m. ... su šeimyna žm. Reiza 52 m. d. Mose 22 m. d. Rise 18 Šimelis 16 m.". הקיצור d. = duktė, כלומר בת. לכן Mose היא בת, כנראה מאשה. המשפחה הוחזרה לנפת צ\'קישקה.']},
+    {id:'g-pass',lv:['y'],t:'כרטיסי דרכון פנימי (ליטא)',d:'1923',
+     files:[['1923-reuven-internal-passport-card.jpg','Ruvimas Meleckis, 1923, עיסוק "Rabinas" (רב)'],['zelde-internal-passport-card.jpg','Zeldė Mileckienė, נולדה 2.XII.1864']],
+     ref:'KRA, attachments to letter 10-2895',raw:[]}
+   ]},
+   {h:'עלייה ואזרחות',items:[
+    {id:'g-1935s',lv:['g'],t:'עלייה של שרה',d:'1935',
+     files:[['1935-sara-palestine-office-card.jpg','כרטיס משרד ארץ ישראל בקובנה · LCVA F.588, ap.1, b.3458, l.282'],['1935-sara-travel-contract-000961.jpg','חוזה נסיעה מס\' 000961 של Hamburg-Südamerikanische, Reznikaite Sora, בת 26, דרך טריאסטה ליפו · LCVA F.1367, ap.5, b.243, l.22']],
+     ref:'LCVA F.588, ap.1, b.3458, l.282 · LCVA F.1367, ap.5, b.243, l.22',raw:[]},
+    {id:'g-1936',lv:null,t:'מכתב רפרנט 52372: רשימת מי שקיבלו אזרחות פלשתינאית',d:'18.4.1936',
+     files:[['1936-04-18-citizenship-referent-list.jpg','']],
+     ref:'LCVA F.1367, ap.10, b.130, l.90',raw:['בשורה 11: "Milecki S.L.".']},
+    {id:'g-1939l',lv:null,t:'מכתב 76714 על דרכונים שבוטלו',d:'14.9.1939',
+     files:[['1939-09-14-letter-cancelled-passports.jpg','']],
+     ref:'[להשלמה]',raw:['זלדה ברשומה 6.']},
+    {id:'g-1939r',lv:null,t:'אלפבית "Išėjusių iš Lietuvos pilietybės"',d:'1939',
+     files:[['1939-register-left-citizenship.jpg','']],
+     ref:'LCVA F.1367, ap.9, b.255, l.66',raw:[]},
+    {id:'g-1940',lv:null,t:'הודעות על אזרחות פלשתינאית',d:'30.5.1940',
+     files:[['1940-05-30-notice-reuven.jpg','ראובן'],['1940-05-30-notice-zelde.jpg','זלדה']],
+     ref:'[להשלמה]',raw:[]}
+   ]},
+   {h:'עיתונות',items:[
+    {id:'g-1935w',lv:['g'],t:'הזמנת החתונה, "קול ישראל"',d:'5.9.1935 · החתונה: י"ב אלול תרצ"ה = יום שלישי, 10.9.1935',
+     files:[['1935-09-05-wedding-invitation-kol-israel.jpg','']],
+     ref:'NLI, kolisrael 1935-09-05',url:'https://www.nli.org.il/he/newspapers/?a=d&d=kolisraeljlm19350905-01.2.2.1',
+     raw:['"נשואי בננו החתן מר שמעון אליעזר נ"י את ב"ג הכלה מרת שרה תחי\' בת הרב הגאון מוה"ר משה רזניק שליט"א הרב מצריצין. החופה תהא אי"ה בשעטו"מ ביום ג\' תצא י"ב אלול תרצ"ה בשעה 4 במלון \'תל אביב\' רחוב יפו ירושלים ... ראובן מילצקי ורעיתו ריזא זעלדא".']},
+    {id:'g-1942',lv:['y'],t:'מודעת בית משפט, Palestine Post',d:'25.2.1942',
+     files:[['1942-02-25-palestine-post-court-notice.jpg','']],
+     ref:'Palestine Post, 25.2.1942',url:'https://www.nli.org.il/he/newspapers/pls/1942/02/25/01/article/40',
+     raw:['תיק הוצאה לפועל 7975/40, בית המשפט המחוזי בתל אביב. הנכס שייך ל-Reuven Miletzki, Masha Kaplanski, Yona Leib Kaplanski ו-Rahel Lea Spokoinah. פרדס בפתח תקווה, גוש 6372 (27), חלקה 6, 26.959 דונם.'],
+     note:['y','מאשה ורחל לאה הן כנראה בנות ראובן.']}
+   ]},
+   {h:'מצבות',items:[
+    {id:'g-grave-reuven',pending:'grave',lv:['g'],t:'מצבת ר\' ראובן מילצקי',d:'ב\' אייר תשי"ג',ref:'הר המנוחות, ירושלים',
+     raw:['"הרב ראובן ... מילצקי", "נלב"ע סמוך לכניסת השבת ב\' אייר תשי"ג".']},
+    {id:'g-grave-chaim',pending:'grave',lv:['g'],t:'מצבת חיים חייקל זאב מילצקי',d:'1964',ref:'[להשלמה]',
+     raw:['"חיים חייקל זאב מילצקי ב"ר ראובן".']},
+    {id:'g-grave-shimon',pending:'grave',lv:['g'],t:'מצבת שמעון אליעזר מילצקי',d:'עשרה בטבת תשמ"ט',ref:'סגולה, פתח תקווה',
+     raw:['"שמעון אליעזר ב"ר ראובן ז"ל מילצקי, חניך ישיבות סלבודקה וחברון, נלב"ע עשרה בטבת תשמ"ט".']},
+    {id:'g-grave-aryeh',pending:'grave',lv:['g'],t:'מצבת אריה דב מילצקי',d:'כ"ו טבת תשנ"ג',ref:'[להשלמה]',
+     raw:['"אריה דב ב"ר שמעון אליעזר מילצקי ... בישיבת חברון ... כ"ו טבת תשנ"ג".']}
+   ]},
+   {h:'מפתחות (LitvakSIG / JewishGen) – מפתח, לא מקור',items:[
+    {id:'g-idx-births',lv:['y'],t:'מפתח לידות ילדי ראובן',d:'1891–1907',files:[['index-ald-births-reuven-children.jpg','']],
+     ref:'LitvakSIG ALD',raw:['שישה ילדים, 1891–1907. סבים: Berko-Movsha ו-Movsha Itsko.']},
+    {id:'g-idx-sara',lv:['y'],t:'מפתח לידת שרה רזניק',d:'16.11.1907',files:[['index-ald-birth-sara-reznik.jpg','']],
+     ref:'LitvakSIG ALD',raw:['סבים: Abram ו-Abram.']},
+    {id:'g-idx-yud',lv:['y'],t:'יודקובסקי בצ\'קישקה',d:'',files:[['index-ald-yudkovsky-cekiske.jpg','']],
+     ref:'LitvakSIG ALD',raw:['Shimel בן Tsodyk (42 ב-1863), Movsha Abram, Chaya Gena, Itsko.']},
+    {id:'g-idx-rud-d',lv:['o'],t:'משפחות רודמן בטלז: פטירות',d:'',files:[['index-ald-rudman-deaths.jpg','']],
+     ref:'LitvakSIG ALD',raw:[]},
+    {id:'g-idx-rud-m',lv:['o'],t:'משפחות רודמן בטלז: נישואין',d:'',files:[['index-ald-rudman-marriages.jpg','']],
+     ref:'LitvakSIG ALD',raw:[]}
+   ]}
+  ];
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+  function lvNode(lv){
+    var s=el('div','g-lv');
+    if(!lv){s.textContent='רמת ביסוס: [להשלמה]';return s}
+    lv.forEach(function(k){s.appendChild(el('i','dot '+LV[k][0]))});
+    s.appendChild(document.createTextNode(lv.map(function(k){return LV[k][1]}).join(' / ')));
+    return s;
+  }
+  var root=document.getElementById('g-root');
+  G.forEach(function(grp){
+    root.appendChild(el('div','g-group',grp.h));
+    var grid=el('div','g-grid');
+    grp.items.forEach(function(it){
+      var c=el('article','g-card'+(it.pending?' pending':''));c.id=it.id;
+      var b=el('div','g-body');
+      b.appendChild(el('div','g-title',it.t));
+      if(it.d)b.appendChild(el('div','g-date',it.d));
+      b.appendChild(lvNode(it.lv));
+      if(it.pending){
+        var ph=el('div','g-ph');
+        ph.appendChild(el('b',null,it.pending==='fs'?'הצילום ב-FamilySearch':'צילום המצבה'));
+        ph.appendChild(el('span',null,'יוצג כאן אחרי בדיקת זכויות'));
+        c.appendChild(ph);
+        b.appendChild(el('span','ref',it.ref));
+        if(it.raw.length){
+          var dt=el('details','g-raw');dt.appendChild(el('summary',null,'הקריאה'));
+          it.raw.forEach(function(r){dt.appendChild(el('div','raw',r))});
+          if(it.note){dt.appendChild(lvNode([it.note[0]]));dt.appendChild(el('div','g-date',it.note[1]))}
+          b.appendChild(dt);
+        }
+        if(it.url){var a=el('a',null,'למקור ↗');a.href=it.url;a.target='_blank';a.rel='noopener';b.appendChild(a)}
+        c.appendChild(b);
+      }else{
+        var btn=el('button','g-open');btn.type='button';btn.setAttribute('aria-label','הגדלה: '+it.t);
+        var im=el('img','g-thumb');im.src='materials/'+it.files[0][0];im.alt=it.t;im.loading='lazy';im.decoding='async';
+        btn.appendChild(im);btn.appendChild(b);
+        if(it.files.length>1)b.appendChild(el('div','g-count',it.files.length+' צילומים'));
+        btn.addEventListener('click',function(){openLb(it,0)});
+        c.appendChild(btn);
+      }
+      grid.appendChild(c);
+    });
+    root.appendChild(grid);
+  });
+  var dlg=document.getElementById('lb'),cur=null,idx=0;
+  function render(){
+    var f=cur.files[idx];
+    var img=document.getElementById('lb-img');img.src='materials/'+f[0];img.alt=cur.t+(f[1]?' – '+f[1]:'');
+    document.getElementById('lb-title').textContent=cur.t;
+    var body=document.getElementById('lb-body');body.innerHTML='';
+    if(cur.d)body.appendChild(el('div','g-date',cur.d));
+    body.appendChild(lvNode(cur.lv));
+    if(cur.files.length>1)body.appendChild(el('div','g-count','צילום '+(idx+1)+' מתוך '+cur.files.length));
+    if(f[1])body.appendChild(el('p',null,f[1]));
+    var r=el('p');r.appendChild(el('b',null,'סימוכין: '));r.appendChild(el('span','ltr',cur.ref));body.appendChild(r);
+    if(cur.raw.length){body.appendChild(el('b',null,'הקריאה:'));cur.raw.forEach(function(x){body.appendChild(el('div','raw',x))})}
+    if(cur.note){var n=el('p');n.appendChild(lvNode([cur.note[0]]));n.appendChild(el('div',null,cur.note[1]));body.appendChild(n)}
+    if(cur.url){var a=el('a',null,'למקור ↗');a.href=cur.url;a.target='_blank';a.rel='noopener';body.appendChild(a)}
+    var multi=cur.files.length>1;
+    dlg.querySelectorAll('.lb-nav').forEach(function(x){x.style.display=multi?'':'none'});
+  }
+  function openLb(it,i){cur=it;idx=i;render();if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
+  function step(d){idx=(idx+d+cur.files.length)%cur.files.length;render()}
+  dlg.querySelector('.lb-close').addEventListener('click',function(){dlg.close()});
+  dlg.querySelector('.lb-prev').addEventListener('click',function(){step(-1)});
+  dlg.querySelector('.lb-next').addEventListener('click',function(){step(1)});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+  dlg.addEventListener('keydown',function(e){if(!cur||cur.files.length<2)return;if(e.key==='ArrowLeft')step(1);if(e.key==='ArrowRight')step(-1)});
+  /* ציור הכרטיסים קורה אחרי טעינת הדף, ולכן גלילה ל-#g-... צריכה לקרות שוב */
+  if(location.hash.indexOf('#g-')===0){var t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView()}
 })();
 </script>
 <footer>משפחת מילצקי · מחקר שורשים · עודכן בנובמבר 2026</footer>
